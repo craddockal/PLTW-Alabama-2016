@@ -6,17 +6,15 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'GoAggies' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+team_name = 'Team1' # Only 10 chars displayed.
+strategy_name = 'Collude then alternate'
+strategy_description = 'Start with Collude then alternate'
     
 def move(my_history, their_history, my_score, their_score):
-    ''' Arguments accepted: my_history, their_history are strings.
-    my_score, their_score are ints.
-    
-    Make my move.
-    Returns 'c' or 'b'. 
-    '''
+    if len(my_history)%2 == 0:
+        return 'c'
+    else:
+        return 'b'
 
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
@@ -52,7 +50,7 @@ if __name__ == '__main__':
               their_history='', 
               my_score=0,
               their_score=0,
-              result='b'):
+              result='c'):
          print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
@@ -65,4 +63,6 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score=0, 
               their_score=0,
-              result='b')             
+              result='b')   
+              
+                                  
